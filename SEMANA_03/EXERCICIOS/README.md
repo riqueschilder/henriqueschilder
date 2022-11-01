@@ -9,8 +9,8 @@ Complemente o circuito com:
 
 Lembre-se de seguir os passos:
 
-1-Crie uma simulação no Wokwi
-2-Programe a simulação no Wokwi
-3-Transfira seu projeto para o circuito físico (protoboard, esp32) utilizando a IDE do Arduino para programar o ESP.
-
+1-Crie uma simulação no Wokwi<br>
+2-Programe a simulação no Wokwi <br>
+3-Transfira seu projeto para o circuito físico (protoboard, esp32) utilizando a IDE do Arduino para programar o ESP.<br>
+<br>
 Caso tenha DÚVIDAS sobre a montagem do MODELO FÍSICO, CONSULTE os PROFESSORES!
