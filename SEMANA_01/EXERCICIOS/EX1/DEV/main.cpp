@@ -1,87 +1,124 @@
 #include <iostream>
 #include <string>
-
+#include <vector>
+#include<algorithm> 
+using namespace std;
 // 1 -  Faça uma função que recebe uma certa medida e ajusta ela percentualmente 
 // entre dois valores mínimo e máximo e retorna esse valor
+
+int func1(){
+int min, max, medida;
+min = 100;
+max = 300;
+medida = (min + max)/2;
+  cout << medida;
+return 0;
+
+}
 
 // 2 - Faça uma função que simule a leitura de um sensor lendo o 
 // valor do teclado ao final a função retorna este valor
 
-// 3 - Faça uma função que armazena uma medida inteira qualquer 
-// em um vetor fornecido. Note que como C não possui vetores 
-// nativos da linguagem, lembre-se que você precisa passar o 
-// valor máximo do vetor assim como a última posição preenchida
-// Evite também que, por acidente, um valor seja escrito em 
-// uma área de memória fora do vetor
-
-
+int  func2()
+{
+  int i;
+  cout << "valor: ";
+  cin >> i;
+  cout << "o valor é " << i;
+  return 0;
+}
 
 // 4 - Faça uma função que recebe um vetor com 4 posições que contém 
 // o valor da distância de um pequeno robô até cada um dos seus 4 lados.
 // A função deve retornar duas informações: A primeira é a direção 
 // de maior distância ("Direita", "Esquerda", "Frente", "Tras") e a 
 // segunda é esta maior distância.
+int func3 ()
+{
+  vector<float> num;
+  int d, e, f, t, m;
+  cout << "direita: ";
+  cin >> d;
+  num.push_back(d);
+  cout << "esquerda: ";
+  cin >> e;
+  num.push_back(e);
+  cout << "frente: ";
+  cin >> f;
+  num.push_back(f);
+  cout << "tras: ";
+  cin >> t;
+  num.push_back(t);
 
+  if (d == *max_element(num.begin(), num.end())){
+    cout << "Maior distancia: Direita";
+  }
+  if (e == *max_element(num.begin(), num.end())){
+    cout << "Maior distancia: Esquerda";
+  }
+  if (f == *max_element(num.begin(), num.end())){
+    cout << "Maior distancia: Frente";
+  }
+  if (t == *max_element(num.begin(), num.end())){
+    cout << "Maior distancia: Tras";
+  }
+  
+  
+  }
 
-
+int func4 ()
+{
+  vector<float> num;
+  int d, e, f, t;
+  cout << "direita: ";
+  cin >> d;
+  num.push_back(d);
+  cout << "esquerda: ";
+  cin >> e;
+  num.push_back(e);
+  cout << "frente: ";
+  cin >> f;
+  num.push_back(f);
+  cout << "tras: ";
+  cin >> t;
+  num.push_back(t);
+  
+  cout << "Maior valor digitado: " << *max_element(num.begin(), num.end()) << endl;
+  return 0;
+  }
 
 // 5 - Faça uma função que pergunta ao usuário se ele deseja continuar o mapeamento e 
 // retorna verdadeiro ou falso
-
-
-// 6 - A função abaixo (que está incompleta) vai "dirigindo" virtualmente um robô 
-// e através de 4 sensores em cada um dos 4 pontos do robo ("Direita", "Esquerda", 
-// "Frente", "Tras"). 
-//      A cada passo, ele verifica as distâncias aos objetos e vai mapeando o terreno 
-// para uma movimentação futura. 
-//      Ele vai armazenando estas distancias em um vetor fornecido como parâmetro 
-// e retorna a ultima posicao preenchida do vetor.
-//      Esta função deve ir lendo os 4 sensores até que um comando de pare seja enviado 
-//
-//      Para simular os sensores e os comandos de pare, use as funções já construídas 
-// nos ítens anteriores e em um looping contínuo até que um pedido de parada seja 
-// enviado pelo usuário. 
-//
-//      Complete a função com a chamada das funções já criadas
-int dirige(int *v,int maxv){
-	int maxVetor = maxv;
-	int *vetorMov = v;
-	int posAtualVetor = 0;
-	int dirigindo = 1;		
-	while(dirigindo){		
-		int medida = /// .. Chame a função de de leitura da medida para a "Direita"
-		medida = converteSensor(medida,0,830);
-		posAtualVetor = // Chame a função para armazenar a medida no vetor
-        ///////////////////////////////////////////////////////////////////////////		
-		// Repita as chamadas acima para a "Esquerda", "Frente", "Tras"
-		// ................
-		///////////////////////////////////////////////////////////////////////////
-		dirigindo = leComando();		
-	}
-	return posAtualVetor;
+static int r=1;
+int  input() {
+  int i;
+  cout << "valor: ";
+  cin >> i;
+  if (i>0){
+    r = 1;
+  }
+  else{
+    r = 0;
+  }
+  return r;
 }
-
-
-// O trecho abaixo irá utilizar as funções acima para ler os sensores e o movimento
-// do robô e no final percorrer o vetor e mostrar o movimento a cada direção baseado 
-// na maior distância a cada movimento
-void percorre(int *v,int tamPercorrido){		
-	int *vetorMov = v;
-	int maiorDir = 0;
-	
-	for(int i = 0; i< tamPercorrido; i+=4){
-		char *direcao = direcaoMenorCaminho(&(vetorMov[i]),&maiorDir);
-		printf("Movimentando para %s distancia = %i\n",direcao,maiorDir);
-	}
+int func5(){
+while (r > 0){
+  input();
+return 0;
 }
+  }
 
-int main(int argc, char** argv) {
-	int maxVetor = 100;
-	int vetorMov[maxVetor*4];
-	int posAtualVet = 0;
-	
-	posAtualVet = dirige(vetorMov,maxVetor);
-	percorre(vetorMov,posAtualVet);
-	
-	return 0;
+int main(){
+  // so descomentar e comentar as funcoes  para testar elas 
+func1();
+//200
+//func2();
+// se eu escrer 200 ele printa 200
+//func3();
+//Recebe os valores e printa o nome dele (frente, tras etc)
+//func4();
+//recebe os valores e printa o maior numero entre eles 
+//func5();
+//vai mandar input ate voce digitar 0
 }
