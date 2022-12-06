@@ -5,10 +5,7 @@
  * @param self.config.names.Player2
  * @constructor
  */
-
-
-
-var PongGame = function(gameCanvasNodeId){
+ var PongGame = function(gameCanvasNodeId){
     var self = this;
 
     // difficulty enumeration
@@ -20,8 +17,7 @@ var PongGame = function(gameCanvasNodeId){
 
     // configuration editable by user
     self.config = {
-        
-        isMultiplayer: true,
+        isMultiplayer: false,
         difficulty: PongGame.aiDifficulty.normal,
         finalScore: 5,
         names: {
@@ -269,7 +265,8 @@ var PongGame = function(gameCanvasNodeId){
                 // print winning screen
                 drawCenteredText(
                     ((scorePlayer1 === self.config.finalScore) ? self.config.names.Player1 : self.config.names.Player2) + ' has won!',
-                    'Click here to restart.'
+                    'Click here to restart.',
+                    window.location.href="/on"
                 );
 
                 // reset the game, in case the game gets restarted
@@ -436,18 +433,18 @@ var PongGame = function(gameCanvasNodeId){
      * @param event
      */
     var updateKeyboardIO = function(){
-       
+
         // if player1 moves the bat
-        if (self.config.controls.Player1.up || self.config.controls.Player1.down) {
+        if (keyboardInputEventMap[self.config.controls.Player1.up] || keyboardInputEventMap[self.config.controls.Player1.down]) {
 
             // up
-            if (self.config.controls.Player1.up) {
+            if (keyboardInputEventMap[self.config.controls.Player1.up]) {
                 self.keyboardIO.Player1Up = true;
                 self.keyboardIO.Player1Down = false;
             }
 
             // down
-            else if (self.config.controls.Player1.down) {
+            else if (keyboardInputEventMap[self.config.controls.Player1.down]) {
                 self.keyboardIO.Player1Up = false;
                 self.keyboardIO.Player1Down = true;
             }
@@ -458,19 +455,17 @@ var PongGame = function(gameCanvasNodeId){
             self.keyboardIO.Player1Down = false;
         }
 
-        
-
         // if player2 moves the bat (just enabled if multiplayer is active)
-        if ((self.config.controls.Player2.up || self.config.controls.Player2.down) && self.config.isMultiplayer) {
+        if ((keyboardInputEventMap[self.config.controls.Player2.up] || keyboardInputEventMap[self.config.controls.Player2.down]) && self.config.isMultiplayer) {
 
             // up
-            if (self.config.controls.Player2.up) {
+            if (keyboardInputEventMap[self.config.controls.Player2.up]) {
                 self.keyboardIO.Player2Up = true;
                 self.keyboardIO.Player2Down = false;
             }
 
             // down
-            else if (self.config.controls.Player2.down) {
+            else if (keyboardInputEventMap[self.config.controls.Player2.down]) {
                 self.keyboardIO.Player2Up = false;
                 self.keyboardIO.Player2Down = true;
             }
